@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.bancosol.abrirachivo"
+        version="1.0.0">
+
+  <name>AbrirArchivo</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+  
+  <asset src="www/abrirarchivo.js" target="js/abrirarchivo.js"/>
+  
+  <js-module src="www/abrirarchivo.js" name="abrirarchivo">
+    <clobbers target="abrirarchivo" />
+  </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/widget/plugins">
+            <feature name="LocalNotification">
+                <param name="ios-package" value="EchoPlugin" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/LocalAbrirArchivo.h" />
+        <source-file src="src/ios/LocalAbrirArchivo.m" />
+    </platform>
+ 
+</plugin>
