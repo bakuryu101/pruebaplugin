@@ -16,7 +16,7 @@
     CDVPluginResult* pluginResult = nil;
     NSString* echo = [command.arguments objectAtIndex:0];
     UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"Make an informed choice"
+                          initWithTitle:echo
                           message:nil
                           delegate:self
                           cancelButtonTitle:@"Cancel"
