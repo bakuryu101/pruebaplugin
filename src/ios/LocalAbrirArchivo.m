@@ -9,6 +9,9 @@
 #import "LocalAbrirArchivo.h"
 #import <Cordova/CDV.h>
 
+@interface LocalAbrirArchivo ()
+
+@end
 @implementation LocalAbrirArchivo
 
 - (void)abriropcionesarchivo:(CDVInvokedUrlCommand *)command
