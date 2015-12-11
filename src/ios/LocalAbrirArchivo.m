@@ -37,6 +37,14 @@
         NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
         //Se escribe los datos de la informacion del pdf en el archivo temporal
         [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+        //Obteniendo el archivo tmp y mistrando en vista previa y tambien las opciones de otras apps
+        controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
+        controller.delegate = self;
+        //[controller presentPreviewAnimated:YES];
+        //[[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
+        UIButton *button = (UIButton *)sender;
+        [controller presentOpenInMenuFromRect:[button frame] inView:self.view animated:YES];
+
         
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
