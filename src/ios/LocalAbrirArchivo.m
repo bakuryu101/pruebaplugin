@@ -42,8 +42,8 @@
         controller.delegate = self;
         //[controller presentPreviewAnimated:YES];
         //[[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
-        UIButton *button = (UIButton *)sender;
-        [controller presentOpenInMenuFromRect:[button frame] inView:self.view animated:YES];
+        //UIButton *button = (UIButton *)sender;
+        [controller presentOpenInMenuFromRect:CGRectZero inView:self.view.window animated:YES];
 
         
     } else {
