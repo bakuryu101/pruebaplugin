@@ -9,9 +9,6 @@
 #import "LocalAbrirArchivo.h"
 #import <Cordova/CDV.h>
 
-@interface LocalAbrirArchivo ()
-
-@end
 @implementation LocalAbrirArchivo
 
 - (void)abriropcionesarchivo:(CDVInvokedUrlCommand *)command
@@ -25,6 +22,7 @@
 //                          cancelButtonTitle:@"Cancel"
 //                          otherButtonTitles:@"OK", nil];
 //    [alert show];
+    CDVViewController* cont = (CDVViewController*)[ super viewController ];
 
     if (StringBase64 != nil && [StringBase64 length] > 0) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:StringBase64];
@@ -45,8 +43,8 @@
         controller.delegate = self;
         //[controller presentPreviewAnimated:YES];
         //[[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
-        //UIButton *button = (UIButton *)sender;
-        [controller presentOpenInMenuFromRect:CGRectZero inView:cont.view animated:YES];
+        UIButton *button = (UIButton *)sender;
+        [controller presentOpenInMenuFromRect:[button frame] inView:cont.view animated:YES];
 
         
     } else {
