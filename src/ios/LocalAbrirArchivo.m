@@ -24,7 +24,7 @@
 //    [alert show];
 
     if (StringBase64 != nil && [StringBase64 length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:StringBase64];
         
         //Decodificando el pdf a un variable de tipo Data
         NSData *data = [[NSData alloc]initWithBase64EncodedString:StringBase64 options:NSDataBase64DecodingIgnoreUnknownCharacters];
