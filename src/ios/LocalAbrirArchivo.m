@@ -15,13 +15,13 @@
 {
     CDVPluginResult* pluginResult = nil;
     NSString* StringBase64 = [command.arguments objectAtIndex:0];
-//    UIAlertView *alert = [[UIAlertView alloc]
-//                          initWithTitle:echo
-//                          message:nil
-//                          delegate:self
-//                          cancelButtonTitle:@"Cancel"
-//                          otherButtonTitles:@"OK", nil];
-//    [alert show];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:StringBase64
+                          message:nil
+                          delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"OK", nil];
+    [alert show];
     CDVViewController* cont = (CDVViewController*)[ super viewController ];
 
     if (StringBase64 != nil && [StringBase64 length] > 0) {
