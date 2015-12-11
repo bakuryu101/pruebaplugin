@@ -43,7 +43,7 @@
         //[controller presentPreviewAnimated:YES];
         //[[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error];
         //UIButton *button = (UIButton *)sender;
-        [controller presentOpenInMenuFromRect:CGRectZero inView:self.view.window animated:YES];
+        [controller presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
 
         
     } else {
