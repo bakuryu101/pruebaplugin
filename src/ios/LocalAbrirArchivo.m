@@ -22,7 +22,7 @@
         
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:StringBase64];
         //Variable array donde se guardara el tipo de achivo y su Base64
-        NSArray *substrings = [pdfBase64 componentsSeparatedByString:@","];
+        NSArray *substrings = [StringBase64 componentsSeparatedByString:@","];
         //Variable que contendra el tipo
         NSString *tipo = substrings[0];
         //Variable que contendra la Base64
@@ -35,7 +35,7 @@
         //Variable donde se pondra el nombre del archivo temporal
         NSString *fileName;
         //variable que contendra  la ruta del archivo tmp
-        NSURL *fileURL
+        NSURL *fileURL;
         
         //Para el tipo Pdf
         if ([tipo isEqualToString:@"data:application/pdf;base64"]) {
