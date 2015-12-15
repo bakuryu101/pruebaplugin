@@ -47,11 +47,21 @@
             //Se escribe los datos de la informacion del pdf en el archivo temporal
             [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
         }
-        //Para los tipos docx y doc (Word)
-        if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64"]||[tipo isEqualToString:@"data:application/msword;base64"]) {
+        //Para los tipos docx (Word)
+        if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64"]) {
             //Creando un archivo temporal de tipo Pdf
             //NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.pdf"];
             fileName = [NSString stringWithFormat: @"Tmp_word.docx"];
+            //obteniendo la direccion del archivo temporal
+            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+            //Se escribe los datos de la informacion del pdf en el archivo temporal
+            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+        }
+        //Para los tipos doc (Word)
+        if ([tipo isEqualToString:@"data:application/msword;base64"]) {
+            //Creando un archivo temporal de tipo Pdf
+            //NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.pdf"];
+            fileName = [NSString stringWithFormat: @"Tmp_word.doc"];
             //obteniendo la direccion del archivo temporal
             fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
             //Se escribe los datos de la informacion del pdf en el archivo temporal
