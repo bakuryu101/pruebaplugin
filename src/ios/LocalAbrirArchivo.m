@@ -131,7 +131,7 @@
         if ([tipo isEqualToString:@"data:image/png;base64"]) {
             //Creando un archivo temporal de tipo Pdf
             //NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.pdf"];
-            fileName = [NSString stringWithFormat: @"Tmp_gif.png"];
+            fileName = [NSString stringWithFormat: @"Tmp_png.png"];
             //obteniendo la direccion del archivo temporal
             fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
             //Se escribe los datos de la informacion del pdf en el archivo temporal
