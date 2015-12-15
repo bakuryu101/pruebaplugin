@@ -77,8 +77,18 @@
             //Se escribe los datos de la informacion del pdf en el archivo temporal
             [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
         }
-        //Para los tipos pptx y ppt (PowerPoint)
-        if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64"]||[tipo isEqualToString:@"data:application/vnd.ms-powerpoint;base64"]) {
+        //Para los tipos pptx (PowerPoint)
+        if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64"]) {
+            //Creando un archivo temporal de tipo Pdf
+            //NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.pdf"];
+            fileName = [NSString stringWithFormat: @"Tmp_power.pptx"];
+            //obteniendo la direccion del archivo temporal
+            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+            //Se escribe los datos de la informacion del pdf en el archivo temporal
+            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+        }
+        //Para los tipos  ppt (PowerPoint)
+        if ([tipo isEqualToString:@"data:application/vnd.ms-powerpoint;base64"]) {
             //Creando un archivo temporal de tipo Pdf
             //NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.pdf"];
             fileName = [NSString stringWithFormat: @"Tmp_power.ppt"];
