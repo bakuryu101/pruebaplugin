@@ -48,76 +48,9 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             String[] substringext = substringtipodato.split(":");
             
             String extencion = substringext[1];
-            //Toast.makeText(MainActivity.this,extencion , Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,extencion , Toast.LENGTH_SHORT).show();
             
-            byte[] decodedBytes = Base64.decode(base64, 0);
-            File path = null;
-            try {
-                if (tipo.equals("data:image/jpeg;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_jpg.jpg");
-                }
-                if (tipo.equals("data:image/gif;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_gif.gif");
-                }
-                if (tipo.equals("data:image/png;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_png.png");
-                }
-                if (tipo.equals("data:application/pdf;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_pdf.pdf");
-                }
-                if (tipo.equals("data:application/vnd.ms-excel;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xls");
-                }
-                if (tipo.equals("data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsx");
-                }
-                if (tipo.equals("data:application/msword;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_word.doc");
-                }
-                if (tipo.equals("data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_word.docx");
-                }
-                if (tipo.equals("data:application/vnd.ms-powerpoint;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_power.ppt");
-                }
-                if (tipo.equals("data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_power.pptx");
-                }
-                if (tipo.equals("data:application/x-rar;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_rar.rar");
-                }
-                if (tipo.equals("data:application/zip;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_zip.zip");
-                }
-                if (tipo.equals("data:text/plain;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_txt.txt");
-                }
-                
-                
-                FileOutputStream os = new FileOutputStream(path, true);
-                os = new FileOutputStream(path, false);
-                os.write(decodedBytes);
-                os.flush();
-                os.close();
-                
-                
-                if (path.exists()) {
-                    Uri path2 = Uri.fromFile(path);
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(path2, extencion);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    
-                    try {
-                        startActivity(intent);
-                    } catch (JSONException e) {
-                        
-                    }
-                }
-                
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                
-            }
+            
             
             
         }else{
