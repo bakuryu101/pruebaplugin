@@ -37,28 +37,22 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             
             String[] substring = StringBase64.split(",");
             
-            String tipo = substring[0];
+            Stringpublic boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
+
+        if (action.equals("greet")) {
+
+            String name = data.getString(0);
+            String message = "Hello, " + name;
+            callbackContext.success(message);
+
+            return true;
+
+        } else {
             
-            String base64 = substring[1];
-            
-            String[] substringtipo = tipo.split(";");
-            
-            String substringtipodato = substringtipo[0];
-            
-            String[] substringext = substringtipodato.split(":");
-            
-            String extencion = substringext[1];
-            Toast.makeText(MainActivity.this,extencion , Toast.LENGTH_SHORT).show();
-            
-            
-            
-            
-        }else{
             return false;
+
         }
-        return true;
-    }
-    
-    
-    
+            }
+            
+    } 
 }
