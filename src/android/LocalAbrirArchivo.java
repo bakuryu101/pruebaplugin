@@ -109,14 +109,14 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     
                     try {
                         startActivity(intent);
-                    } catch (ActivityNotFoundException e) {
+                    } catch (JSONException e) {
                         
                     }
                 }
                 
-            } catch (Exception e) {
+            } catch (JSONException e) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
+                
             }
             
             
