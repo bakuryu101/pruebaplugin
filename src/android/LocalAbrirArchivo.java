@@ -48,7 +48,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             String[] substringext = substringtipodato.split(":");
             
             String extencion = substringext[1];
-            
+            Toast.makeText(MainActivity.this,extencion , Toast.LENGTH_SHORT).show();
             
             byte[] decodedBytes = Base64.decode(base64, 0);
             File path = null;
@@ -99,7 +99,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 os.write(decodedBytes);
                 os.flush();
                 os.close();
-                Toast.makeText(MainActivity.this,StringBase64 , Toast.LENGTH_SHORT).show();
+                
                 
                 if (path.exists()) {
                     Uri path2 = Uri.fromFile(path);
