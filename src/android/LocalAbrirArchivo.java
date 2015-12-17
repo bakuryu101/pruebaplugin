@@ -114,7 +114,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     }
                 }
                 
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 // TODO Auto-generated catch block
                 
             }
