@@ -31,7 +31,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if ("abriropcionesarchivo".equals(action)) {
-            this.mostrar(args.getString(0), callbackContext);
+            //this.mostrar(args.getString(0), callbackContext);
             
             String StringBase64 = args.getString(0)
             
