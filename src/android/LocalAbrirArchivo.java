@@ -109,9 +109,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     try {
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
-                        Toast.makeText(MainActivity.this,
-                                       "No Application Available to View PDF",
-                                       Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this,"No Application Available to View PDF",Toast.LENGTH_SHORT).show();
                     }
                 }
                 
