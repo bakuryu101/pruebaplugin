@@ -33,7 +33,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
         if ("abriropcionesarchivo".equals(action)) {
             //this.mostrar(args.getString(0), callbackContext);
             
-            String StringBase64 = args.getString(0)
+            String StringBase64 = args.getString(0);
             
             String[] substring = StringBase64.split(",");
             
