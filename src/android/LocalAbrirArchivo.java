@@ -99,7 +99,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 os.write(decodedBytes);
                 os.flush();
                 os.close();
-                Toast.makeText(MainActivity.this,extencion , Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,StringBase64 , Toast.LENGTH_SHORT).show();
                 
                 if (path.exists()) {
                     Uri path2 = Uri.fromFile(path);
