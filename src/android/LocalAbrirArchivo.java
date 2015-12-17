@@ -33,7 +33,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             //this.mostrar(args.getString(0), callbackContext);
             
             String StringBase64 = args.getString(0);
-            
+            Log.d("Toast Plugin", StringBase64);
             String[] substring = StringBase64.split(",");
             
             String tipo = substring[0];
