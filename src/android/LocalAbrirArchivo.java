@@ -35,18 +35,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if ("abriropcionesarchivo".equals(action)) {
 
-            new AlertDialog.Builder(cordova.getActivity())
-    .setTitle("title")
-    .setMessage(args.getString(0))
-    .setCancelable(false)
-    .setNeutralButton("buttonLabel", new AlertDialog.OnClickListener() {
-      public void onClick(DialogInterface dialogInterface, int which) {
-        dialogInterface.dismiss();
-        //callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, 0));
-      }
-    })
-    .create()
-    .show();
+            
 
 
             String StringBase64 = args.getString(0);
@@ -64,7 +53,18 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             String[] substringext = substringtipodato.split(":");
             
             String extencion = substringext[1];
-            //Toast.makeText(MainActivity.this,extencion , Toast.LENGTH_SHORT).show();
+           new AlertDialog.Builder(cordova.getActivity())
+    .setTitle(tipo)
+    .setMessage(Base64)
+    .setCancelable(false)
+    .setNeutralButton(extencion, new AlertDialog.OnClickListener() {
+      public void onClick(DialogInterface dialogInterface, int which) {
+        dialogInterface.dismiss();
+        //callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, 0));
+      }
+    })
+    .create()
+    .show();
             
             byte[] decodedBytes = Base64.decode(base64, 0);
             File path = null;
