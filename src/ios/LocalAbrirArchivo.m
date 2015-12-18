@@ -37,120 +37,140 @@
         //variable que contendra  la ruta del archivo tmp
         NSURL *fileURL;
         
-        //Para el tipo Pdf
-        if ([tipo isEqualToString:@"data:application/pdf;base64"]) {
-            //Creando un archivo temporal de tipo Pdf
-            //NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.pdf"];
-            fileName = [NSString stringWithFormat: @"Tmp_pdf.pdf"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para los tipos docx (Word)
-        if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64"]) {
-            //Creando un archivo temporal de tipo docx
-            fileName = [NSString stringWithFormat: @"Tmp_word.docx"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para los tipos doc (Word)
-        if ([tipo isEqualToString:@"data:application/msword;base64"]) {
-            //Creando un archivo temporal de tipo doc
-            fileName = [NSString stringWithFormat: @"Tmp_word.doc"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para los tipos xlsx y xls (Excel)
-        if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64"]||[tipo isEqualToString:@"data:application/vnd.ms-excel;base64"]) {
-            //Creando un archivo temporal de tipo xlsx
-            fileName = [NSString stringWithFormat: @"Tmp_excel.xlsx"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para los tipos pptx (PowerPoint)
-        if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64"]) {
-            //Creando un archivo temporal de tipo pptx
-            fileName = [NSString stringWithFormat: @"Tmp_power.pptx"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para los tipos  ppt (PowerPoint)
-        if ([tipo isEqualToString:@"data:application/vnd.ms-powerpoint;base64"]) {
-            //Creando un archivo temporal de tipo ppt
-            fileName = [NSString stringWithFormat: @"Tmp_power.ppt"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para el tipo rar
-        if ([tipo isEqualToString:@"data:application/x-rar;base64"]) {
-            //Creando un archivo temporal de tipo rar
-            fileName = [NSString stringWithFormat: @"Tmp_rar.rar"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para el tipo zip
-        if ([tipo isEqualToString:@"data:application/zip;base64"]) {
-            //Creando un archivo temporal de tipo zip
-            fileName = [NSString stringWithFormat: @"Tmp_zip.zip"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para el tipo txt
-        if ([tipo isEqualToString:@"data:text/plain;base64"]) {
-            //Creando un archivo temporal de tipo txt
-            fileName = [NSString stringWithFormat: @"Tmp_text.txt"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para el tipo jpg
-        if ([tipo isEqualToString:@"data:image/jpeg;base64"]) {
-            //Creando un archivo temporal de tipo jpg
-            fileName = [NSString stringWithFormat: @"Tmp_jpeg.jpg"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para el tipo gif
-        if ([tipo isEqualToString:@"data:image/gif;base64"]) {
-            //Creando un archivo temporal de tipo gif
-            fileName = [NSString stringWithFormat: @"Tmp_gif.gif"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
-        //Para el tipo png
-        if ([tipo isEqualToString:@"data:image/png;base64"]) {
-            //Creando un archivo temporal de tipo png
-            fileName = [NSString stringWithFormat: @"Tmp_png.png"];
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-        }
         
-        //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
-        controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
-        controller.delegate = self;
-        [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
+        @try {
+            
+            //Para el tipo Pdf
+            if ([tipo isEqualToString:@"data:application/pdf;base64"]) {
+                //Creando un archivo temporal de tipo Pdf
+                //NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.pdf"];
+                fileName = [NSString stringWithFormat: @"Tmp_pdf.pdf"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para los tipos docx (Word)
+            if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64"]) {
+                //Creando un archivo temporal de tipo docx
+                fileName = [NSString stringWithFormat: @"Tmp_word.docx"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para los tipos doc (Word)
+            if ([tipo isEqualToString:@"data:application/msword;base64"]) {
+                //Creando un archivo temporal de tipo doc
+                fileName = [NSString stringWithFormat: @"Tmp_word.doc"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para los tipos xlsx y xls (Excel)
+            if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64"]||[tipo isEqualToString:@"data:application/vnd.ms-excel;base64"]) {
+                //Creando un archivo temporal de tipo xlsx
+                fileName = [NSString stringWithFormat: @"Tmp_excel.xlsx"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para los tipos pptx (PowerPoint)
+            if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64"]) {
+                //Creando un archivo temporal de tipo pptx
+                fileName = [NSString stringWithFormat: @"Tmp_power.pptx"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para los tipos  ppt (PowerPoint)
+            if ([tipo isEqualToString:@"data:application/vnd.ms-powerpoint;base64"]) {
+                //Creando un archivo temporal de tipo ppt
+                fileName = [NSString stringWithFormat: @"Tmp_power.ppt"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para el tipo rar
+            if ([tipo isEqualToString:@"data:application/x-rar;base64"]) {
+                //Creando un archivo temporal de tipo rar
+                fileName = [NSString stringWithFormat: @"Tmp_rar.rar"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para el tipo zip
+            if ([tipo isEqualToString:@"data:application/zip;base64"]) {
+                //Creando un archivo temporal de tipo zip
+                fileName = [NSString stringWithFormat: @"Tmp_zip.zip"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para el tipo txt
+            if ([tipo isEqualToString:@"data:text/plain;base64"]) {
+                //Creando un archivo temporal de tipo txt
+                fileName = [NSString stringWithFormat: @"Tmp_text.txt"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para el tipo jpg
+            if ([tipo isEqualToString:@"data:image/jpeg;base64"]) {
+                //Creando un archivo temporal de tipo jpg
+                fileName = [NSString stringWithFormat: @"Tmp_jpeg.jpg"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para el tipo gif
+            if ([tipo isEqualToString:@"data:image/gif;base64"]) {
+                //Creando un archivo temporal de tipo gif
+                fileName = [NSString stringWithFormat: @"Tmp_gif.gif"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            //Para el tipo png
+            if ([tipo isEqualToString:@"data:image/png;base64"]) {
+                //Creando un archivo temporal de tipo png
+                fileName = [NSString stringWithFormat: @"Tmp_png.png"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
+            
+            //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
+            controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
+            controller.delegate = self;
+            [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
+
+        }
+        @catch (NSException * e) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR!"
+                                                            message:@"No es un formato permitido de lectura"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+
+        }
+        @finally {
+            
+        }
+
+        
         
         
     } else {
