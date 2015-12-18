@@ -120,10 +120,12 @@
                 
             }
             
+            if (fileName != nil && [fileName length] > 0) {
             //obteniendo la direccion del archivo temporal
             fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
             //Se escribe los datos de la informacion del pdf en el archivo temporal
             [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
             
             //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
             controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
