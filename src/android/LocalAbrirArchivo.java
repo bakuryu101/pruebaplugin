@@ -55,7 +55,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             String extencion = substringext[1];
            new AlertDialog.Builder(cordova.getActivity())
     .setTitle(tipo)
-    .setMessage(Base64)
+    .setMessage(base64)
     .setCancelable(false)
     .setNeutralButton(extencion, new AlertDialog.OnClickListener() {
       public void onClick(DialogInterface dialogInterface, int which) {
