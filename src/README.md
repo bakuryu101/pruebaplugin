@@ -15,6 +15,7 @@ abrirarchivo.abriropcionesarchivo("base64 a mandar a la funcion nativa",
                                     funcion errorCallback);
 
 # Android: Adicionar permisos de lectura y escritura al AndroidManifest.xml
+# en caso de que no funcione el plugin
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
