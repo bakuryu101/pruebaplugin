@@ -87,14 +87,14 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 if (tipo.equals("data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsx");
                 }
+                if (tipo.equals("data:application/vnd.ms-excel.sheet.macroenabled.12;base64")) {
+                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsm");
+                }
                 if (tipo.equals("data:application/msword;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_word.doc");
                 }
                 if (tipo.equals("data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_word.docx");
-                }
-                if (tipo.equals("data:application/vnd.ms-excel.sheet.macroenabled.12;base64")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsm");
                 }
                 if (tipo.equals("data:application/vnd.ms-powerpoint;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_power.ppt");
