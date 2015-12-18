@@ -77,6 +77,15 @@
                 //Se escribe los datos de la informacion del pdf en el archivo temporal
                 [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
             }
+            //Para los tipos xlsm (Excel)
+            if ([tipo isEqualToString:@"data:application/vnd.ms-excel.sheet.macroenabled.12;base64"]) {
+                //Creando un archivo temporal de tipo xlsm
+                fileName = [NSString stringWithFormat: @"Tmp_excel.xlsm"];
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            }
             //Para los tipos pptx (PowerPoint)
             if ([tipo isEqualToString:@"data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64"]) {
                 //Creando un archivo temporal de tipo pptx
