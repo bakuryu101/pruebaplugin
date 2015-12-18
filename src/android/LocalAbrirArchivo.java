@@ -53,18 +53,17 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             String[] substringext = substringtipodato.split(":");
             
             String extencion = substringext[1];
-           new AlertDialog.Builder(cordova.getActivity())
+           /*new AlertDialog.Builder(cordova.getActivity())
     .setTitle(tipo)
     .setMessage(base64)
     .setCancelable(false)
     .setNeutralButton(extencion, new AlertDialog.OnClickListener() {
       public void onClick(DialogInterface dialogInterface, int which) {
         dialogInterface.dismiss();
-        //callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, 0));
-      }
+        }
     })
     .create()
-    .show();
+    .show();*/
             
             byte[] decodedBytes = Base64.decode(base64, 0);
             File path = null;
