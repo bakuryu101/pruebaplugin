@@ -1,11 +1,15 @@
 package com.bancosol.plugin;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+
+
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Context;
 import android.widget.Toast;
 
 import android.content.ActivityNotFoundException;
@@ -30,13 +34,22 @@ public class LocalAbrirArchivo extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if ("abriropcionesarchivo".equals(action)) {
-            //this.mostrar(args.getString(0), callbackContext);
-            
+
+            new AlertDialog.Builder(cordova.getActivity())
+    .setTitle("title")
+    .setMessage(args.getString(0))
+    .setCancelable(false)
+    .setNeutralButton("buttonLabel", new AlertDialog.OnClickListener() {
+      public void onClick(DialogInterface dialogInterface, int which) {
+        dialogInterface.dismiss();
+        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, 0));
+      }
+    })
+    .create()
+    .show();
+
+
             String StringBase64 = args.getString(0);
-            
-            Context context = this.cordova.getActivity().getApplicationContext();
-    Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
-    toast.show();
     
             String[] substring = StringBase64.split(",");
             
