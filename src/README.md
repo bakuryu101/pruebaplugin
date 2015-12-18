@@ -5,7 +5,7 @@
 
 # Los formatos soportados son:
 
-# Documentos (.pdf;.doc;.docx;.xls;.xlsx;.ppt;.pptx)
+# Documentos (.pdf;.doc;.docx;.xls;.xlsx;.xlsm;.ppt;.pptx)
 # Comprimidos (.rar;.zip)
 # Documentos de texto (.txt)
 # Imagenes (.jpg;.gif;.png)
