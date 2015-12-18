@@ -134,6 +134,19 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     } catch (ActivityNotFoundException e) {
                         
                     }
+                }else{
+                    new AlertDialog.Builder(cordova.getActivity())
+                     .setTitle("ERROR!")
+                     .setMessage("No es un formato permitido de lectura")
+                     .setCancelable(false)
+                     .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                     public void onClick(DialogInterface dialogInterface, int which) {
+                     dialogInterface.dismiss();
+                     }
+                     })
+                     .create()
+                     .show();
+
                 }
                 
             } catch (Exception e) {
