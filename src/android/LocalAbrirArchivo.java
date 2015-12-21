@@ -102,7 +102,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 if (tipo.equals("data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_power.pptx");
                 }
-                if (tipo.equals("data:application/x-rar;base64")) {
+                if (tipo.equals("data:application/x-rar;base64")||tipo.equals("data:application/rar;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_rar.rar");
                 }
                 if (tipo.equals("data:application/zip;base64")) {
