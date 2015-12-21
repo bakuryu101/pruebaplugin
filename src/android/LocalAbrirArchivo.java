@@ -53,9 +53,9 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             
             // Muestra un alert para verificar si se esta resibiendo los datos
             
-            /*new AlertDialog.Builder(cordova.getActivity())
+            new AlertDialog.Builder(cordova.getActivity())
              .setTitle(tipo)
-             .setMessage(base64)
+             .setMessage(tipo)
              .setCancelable(false)
              .setNeutralButton(extencion, new AlertDialog.OnClickListener() {
              public void onClick(DialogInterface dialogInterface, int which) {
@@ -63,7 +63,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
              }
              })
              .create()
-             .show();*/
+             .show();
             // Se realiza la decoficacion de la base64 dentri de un array de bits
             byte[] decodedBytes = Base64.decode(base64, 0);
             //Inicializamos un variable de tipo File que sera creada dentro los archivos temporales del dispositivo
