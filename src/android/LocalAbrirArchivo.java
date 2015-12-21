@@ -128,6 +128,9 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     //Crea la accion nativa para desplegar las opciones de las app
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     //Obtiene el File y el tipo, para mostrar las app compatibles
+                    if (tipo.equals("data:;base64")) {
+                    extencion="application/vnd.ms-excel.sheet.macroenabled.12";
+                    }
                     intent.setDataAndType(path2, extencion);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     
