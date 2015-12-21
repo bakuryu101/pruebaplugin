@@ -53,7 +53,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             
             // Muestra un alert para verificar si se esta resibiendo los datos
             
-            new AlertDialog.Builder(cordova.getActivity())
+            /*new AlertDialog.Builder(cordova.getActivity())
              .setTitle(tipo)
              .setMessage(tipo)
              .setCancelable(false)
@@ -63,7 +63,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
              }
              })
              .create()
-             .show();
+             .show();*/
             // Se realiza la decoficacion de la base64 dentri de un array de bits
             byte[] decodedBytes = Base64.decode(base64, 0);
             //Inicializamos un variable de tipo File que sera creada dentro los archivos temporales del dispositivo
@@ -87,7 +87,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 if (tipo.equals("data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsx");
                 }
-                if (tipo.equals("data:application/vnd.ms-excel.sheet.macroenabled.12;base64")) {
+                if (tipo.equals("data:application/vnd.ms-excel.sheet.macroenabled.12;base64")||tipo.equals("data:;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsm");
                 }
                 if (tipo.equals("data:application/msword;base64")) {
