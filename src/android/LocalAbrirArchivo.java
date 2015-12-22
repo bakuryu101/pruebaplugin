@@ -128,9 +128,6 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     //Crea la accion nativa para desplegar las opciones de las app
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     //Obtiene el File y el tipo, para mostrar las app compatibles
-                    if (tipo.equals("data:;base64")) {
-                    extencion="application/vnd.ms-excel.sheet.macroenabled.12";
-                    }
                     intent.setDataAndType(path2, extencion);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     
@@ -138,7 +135,17 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     // Si todo es correcto se abre las opciones de las app
                         this.cordova.getActivity().startActivity(intent);
                     } catch (ActivityNotFoundException e) {
-                        
+                        new AlertDialog.Builder(cordova.getActivity())
+                         .setTitle("ALERTA")
+                         .setMessage("No tiene una aplicacion q pueda abrir este archivo o imagen")
+                         .setCancelable(false)
+                         .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                         public void onClick(DialogInterface dialogInterface, int which) {
+                         dialogInterface.dismiss();
+                         }
+                         })
+                         .create()
+                         .show();
                     }
                 }
                 
