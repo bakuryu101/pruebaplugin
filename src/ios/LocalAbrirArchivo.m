@@ -84,7 +84,7 @@
                 
             }
             //Para el tipo rar
-            if ([tipo isEqualToString:@"data:application/x-rar;base64"]) {
+            if ([tipo isEqualToString:@"data:application/x-rar;base64"]||[tipo isEqualToString:@"data:application/rar;base64"]) {
                 //Creando un archivo temporal de tipo rar
                 fileName = [NSString stringWithFormat: @"Tmp_rar.rar"];
                 
@@ -119,19 +119,26 @@
                 fileName = [NSString stringWithFormat: @"Tmp_png.png"];
                 
             }
+            @try {
+                //obteniendo la direccion del archivo temporal
+                fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+                //Se escribe los datos de la informacion del pdf en el archivo temporal
+                [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
             
-            if (fileName != nil && [fileName length] > 0) {
-            //obteniendo la direccion del archivo temporal
-            fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            //Se escribe los datos de la informacion del pdf en el archivo temporal
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+                //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
+                controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
+                controller.delegate = self;
+                [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
             }
-            
-            //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
-            controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
-            controller.delegate = self;
-            [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
-
+            @catch (NSException * e) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ALERTA"
+                                                                message:@"No tiene ninguna aplicacion que pueda abrir este archivo"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                
+            }
         }
         @catch (NSException * e) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR!"
