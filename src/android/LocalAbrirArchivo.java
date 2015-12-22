@@ -87,7 +87,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 if (tipo.equals("data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsx");
                 }
-                if (tipo.equals("data:application/vnd.ms-excel.sheet.macroenabled.12;base64")||tipo.equals("data:;base64")) {
+                if (tipo.equals("data:application/vnd.ms-excel.sheet.macroenabled.12;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsm");
                 }
                 if (tipo.equals("data:application/msword;base64")) {
@@ -132,37 +132,37 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     
                     try {
-                    // Si todo es correcto se abre las opciones de las app
+                        // Si todo es correcto se abre las opciones de las app
                         this.cordova.getActivity().startActivity(intent);
                     } catch (ActivityNotFoundException e) {
                         new AlertDialog.Builder(cordova.getActivity())
-                         .setTitle("ALERTA")
-                         .setMessage("No tiene una aplicacion q pueda abrir este archivo o imagen")
-                         .setCancelable(false)
-                         .setNeutralButton("OK", new AlertDialog.OnClickListener() {
-                         public void onClick(DialogInterface dialogInterface, int which) {
-                         dialogInterface.dismiss();
-                         }
-                         })
-                         .create()
-                         .show();
+                        .setTitle("ALERTA")
+                        .setMessage("No tiene ninguna aplicacion que pueda abrir este archivo")
+                        .setCancelable(false)
+                        .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .create()
+                        .show();
                     }
                 }
                 
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 new AlertDialog.Builder(cordova.getActivity())
-                     .setTitle("ERROR!")
-                     .setMessage("No es un formato permitido de lectura")
-                     .setCancelable(false)
-                     .setNeutralButton("OK", new AlertDialog.OnClickListener() {
-                     public void onClick(DialogInterface dialogInterface, int which) {
-                     dialogInterface.dismiss();
-                     }
-                     })
-                     .create()
-                     .show();
-                     
+                .setTitle("ERROR!")
+                .setMessage("No es un formato permitido de lectura")
+                .setCancelable(false)
+                .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .create()
+                .show();
+                
                 e.printStackTrace();
             }
             
