@@ -132,7 +132,7 @@
                     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
                 
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Informacion"
-                                                                message:@"Tu imagen ha sido guardada en las imagenes del dispositivo"
+                                                                message:@"Puedes ver tu imagen en la galeria de imagenes"
                                                                delegate:nil
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
