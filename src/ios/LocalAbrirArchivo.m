@@ -171,4 +171,13 @@
 - (UIViewController *) documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *) controller {
     return self.viewController;
 }
+- (UIDocumentInteractionController *) setupControllerWithURL: (NSURL*) fileURL
+                                               usingDelegate: (id <UIDocumentInteractionControllerDelegate>) interactionDelegate {
+    
+    UIDocumentInteractionController *interactionController =
+    [UIDocumentInteractionController interactionControllerWithURL: fileURL];
+    interactionController.delegate = interactionDelegate;
+    
+    return interactionController;
+}
 @end
