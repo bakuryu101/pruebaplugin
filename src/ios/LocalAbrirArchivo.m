@@ -124,11 +124,12 @@
                 fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
                 //Se escribe los datos de la informacion del pdf en el archivo temporal
                 [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-            
+                
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 controller.delegate = self;
-                [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
+                [controller presentPreviewAnimated:YES]
+                //[controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
             }
             @catch (NSException * e) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ALERTA"
