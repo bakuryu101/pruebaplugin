@@ -170,7 +170,7 @@
     
     
 }
-- (UIViewController *) documentInteractionControllerViewControllerForPreview: (UIDocumentInteractionController *) controller {
+- (CDVViewController *) documentInteractionControllerViewControllerForPreview: (UIDocumentInteractionController *) controller {
     return self;
 }
 @end
