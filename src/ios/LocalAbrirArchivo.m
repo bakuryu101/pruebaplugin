@@ -125,18 +125,21 @@
                 //Se escribe los datos de la informacion del pdf en el archivo temporal
                 [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
                 
-                NSData *imageData = [[NSData alloc] initWithContentsOfURL:fileURL];
-                UIImage *image = [[UIImage alloc] initWithData:imageData];
+                if ([tipo isEqualToString:@"data:image/gif;base64"]||[tipo isEqualToString:@"data:image/png;base64"]||[tipo isEqualToString:@"data:image/jpeg;base64"]) {
+                    NSData *imageData = [[NSData alloc] initWithContentsOfURL:fileURL];
+                    UIImage *image = [[UIImage alloc] initWithData:imageData];
                 
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Informacion"
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Informacion"
                                                                 message:@"Tu imagen ha sido guardada en las imagenes del dispositivo"
                                                                delegate:nil
                                                       cancelButtonTitle:@"OK"
                                                       otherButtonTitles:nil];
-                [alert show];
-               
+                    [alert show];
+                
+                }
+                
                 
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
