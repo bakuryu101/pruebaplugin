@@ -125,6 +125,11 @@
                 //Se escribe los datos de la informacion del pdf en el archivo temporal
                 [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
                 
+                NSData *imageData = [[NSData alloc] initWithContentsOfURL:fileURL];
+                UIImage *image = [[UIImage alloc] initWithData:imageData];
+                
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+                
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 controller.delegate = self;
