@@ -135,7 +135,7 @@
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 
-    [self presentViewController:picker animated:YES completion:NULL];
+    [self ViewSuperior:picker animated:YES completion:NULL];
                 
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
