@@ -127,13 +127,8 @@
                 
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
-                
-                [controller setDelegate:[[[UIApplication sharedApplication] keyWindow] rootViewController]];
-                [controller presentPreviewAnimated:YES];
-                //NSLog(@"Failed to open document in Document Directory");
-                
-                //controller.delegate = self;
-                //[controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
+                controller.delegate = self;
+                [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
             }
             @catch (NSException * e) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ALERTA"
@@ -169,8 +164,5 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     
     
-}
-- (UIViewController *) documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *) controller {
-    return self.viewController;
 }
 @end
