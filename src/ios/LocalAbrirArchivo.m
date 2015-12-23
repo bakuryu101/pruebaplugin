@@ -124,23 +124,6 @@
                 fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
                 //Se escribe los datos de la informacion del pdf en el archivo temporal
                 [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-                
-                if ([tipo isEqualToString:@"data:image/gif;base64"]||[tipo isEqualToString:@"data:image/png;base64"]||[tipo isEqualToString:@"data:image/jpeg;base64"]) {
-                    NSData *imageData = [[NSData alloc] initWithContentsOfURL:fileURL];
-                    UIImage *image = [[UIImage alloc] initWithData:imageData];
-                
-                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-                
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Informacion"
-                                                                message:@"Puedes ver tu imagen en la galeria de imagenes"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                    [alert show];
-                
-                }
-                
-                
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 controller.delegate = self;
