@@ -130,12 +130,13 @@
                 
                 UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
                 
-                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-
-    [self ViewSuperior:picker animated:YES completion:NULL];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mostrar"
+                                                                message:@"Tu imagen ha sido guardada en tus imagenes"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+               
                 
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
