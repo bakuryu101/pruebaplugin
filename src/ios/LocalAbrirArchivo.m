@@ -131,7 +131,7 @@
                 
                 [controller presentPreviewAnimated:YES];
                 
-                [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
+                //[controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
             }
             @catch (NSException * e) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ALERTA"
