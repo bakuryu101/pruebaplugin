@@ -129,7 +129,7 @@
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 
                 [controller setDelegate:[[[UIApplication sharedApplication] keyWindow] rootViewController]];
-                [controller presentPreviewAnimated:YES]
+                [controller presentPreviewAnimated:YES];
                 //NSLog(@"Failed to open document in Document Directory");
                 
                 //controller.delegate = self;
