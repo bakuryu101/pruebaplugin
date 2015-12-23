@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="com.bancosol.abrirachivo"
+        id="com.bancosol.abrirarchivo"
         version="1.0.0">
 
   <name>AbrirArchivo</name>
