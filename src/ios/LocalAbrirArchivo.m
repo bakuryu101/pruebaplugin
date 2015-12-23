@@ -127,11 +127,8 @@
                 
                 //Obteniendo el archivo tmp y mostrando en vista previa y tambien las opciones de otras apps
                 controller =[UIDocumentInteractionController interactionControllerWithURL:fileURL];
-                //controller.delegate = self;
-                
-                [controller presentPreviewAnimated:YES];
-                
-                //[controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
+                controller.delegate = self;
+                [controller presentOpenInMenuFromRect:CGRectZero inView:ViewSuperior.view animated:YES];
             }
             @catch (NSException * e) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ALERTA"
@@ -168,16 +165,5 @@
     
     
 }
-- (UIViewController *) documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *) controller {
-    return self.viewController;
-}
-- (UIDocumentInteractionController *) setupControllerWithURL: (NSURL*) fileURL
-                                               usingDelegate: (id <UIDocumentInteractionControllerDelegate>) interactionDelegate {
-    
-    UIDocumentInteractionController *interactionController =
-    [UIDocumentInteractionController interactionControllerWithURL: fileURL];
-    interactionController.delegate = interactionDelegate;
-    
-    return interactionController;
-}
+
 @end
