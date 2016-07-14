@@ -69,7 +69,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             //Inicializamos un variable de tipo File que sera creada dentro los archivos temporales del dispositivo
             File path = null;
             try {
-                if (tipo.equals("data:image/jpeg;base64")) {
+                if (tipo.equals("data:image/jpeg;base64")||tipo.equals("data:image/jpg;base64")) {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_jpg.jpg");
                 }
                 if (tipo.equals("data:image/gif;base64")) {
