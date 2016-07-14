@@ -102,7 +102,7 @@
                 
             }
             //Para el tipo jpg
-            if ([tipo isEqualToString:@"data:image/jpeg;base64"]) {
+            if ([tipo isEqualToString:@"data:image/jpeg;base64"]||[tipo isEqualToString:@"data:image/jpg;base64"]) {
                 //Creando un archivo temporal de tipo jpg
                 fileName = [NSString stringWithFormat: @"Tmp_jpeg.jpg"];
                 
