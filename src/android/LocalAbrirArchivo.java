@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 
 public class LocalAbrirArchivo extends CordovaPlugin {
     
