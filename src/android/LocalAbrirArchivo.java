@@ -152,13 +152,12 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 
             } catch (Exception e) {
                 if (tipo.equals("data:text/plain;base64decoded")) {
-                    FileOutputStream fos = openFileOutput("sincro.txt", MODE_PRIVATE);
-                    OutputStreamWriter osw = new OutputStreamWriter(fos);
-                     
-                    // Escribimos el String en el archivo
-                    osw.write(base64);
-                    osw.flush();
-                    osw.close();
+                    OutputStreamWriter fout=
+                        new OutputStreamWriter(
+                            openFileOutput("sincro.txt", Context.MODE_PRIVATE));
+                 
+                    fout.write(base64);
+                    fout.close();
                      
                     // Mostramos que se ha guardado
                     new AlertDialog.Builder(cordova.getActivity())
