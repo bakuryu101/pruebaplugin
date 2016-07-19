@@ -199,7 +199,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 // TODO Auto-generated catch block
                     new AlertDialog.Builder(cordova.getActivity())
                     .setTitle(tipo)
-                    .setMessage(base)
+                    .setMessage('base')
                     .setCancelable(false)
                     .setNeutralButton("OK", new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialogInterface, int which) {
