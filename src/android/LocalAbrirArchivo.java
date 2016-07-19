@@ -156,7 +156,8 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     FileOutputStream os = new FileOutputStream(path, true);
                     os = new FileOutputStream(path, false);
                     //Se escribe los datos dentro del file
-                    os.write(base64);
+                    byte[] TextInbytes = base64.getBytes("UTF-8");
+                    os.write(TextInbytes);
                     os.flush();
                     //Se cierra el file
                     os.close();
