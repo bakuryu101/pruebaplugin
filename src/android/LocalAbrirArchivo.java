@@ -185,7 +185,9 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 byte[] StringBytes= base.getBytes();
                 try {
                     if (tipo.equals("text")) {
-                        path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
+                        date horaActual=new Date();
+                        String hora=(horaActual.getYear()+1900)+””+horaActual.getMonth()+1)+""+horaActual.getDate()+””+horaActual.getHours()+""+horaActual.getMinutes()+""+horaActual.getSeconds();
+                        path = new File(Environment.getExternalStorageDirectory() + "/sincro"+hora+".txt");
                     }
                     //se crea el atchivo segun la ruta del path tipo File
                     FileOutputStream os = new FileOutputStream(path, true);
@@ -197,7 +199,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     os.close();
                     
                     // TODO Auto-generated catch block
-                    new AlertDialog.Builder(cordova.getActivity())
+                    /*new AlertDialog.Builder(cordova.getActivity())
                     .setTitle("CORRECTO")
                     .setMessage("Datos guardados en el dispositivo")
                     .setCancelable(false)
@@ -207,7 +209,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                         }
                     })
                     .create()
-                    .show();
+                    .show();*/
                     
                     
                 
