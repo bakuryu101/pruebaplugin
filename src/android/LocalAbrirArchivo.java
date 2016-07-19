@@ -151,10 +151,10 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 
             } catch (Exception e) {
                 if (tipo.equals("data:text/plain;base64decoded")) {
-                    File path = null;
+                    
                     path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
                     //se crea el atchivo segun la ruta del path tipo File
-                    FileOutputStream os = new FileOutputStream(path, true);
+                    os = new FileOutputStream(path, true);
                     os = new FileOutputStream(path, false);
                     //Se escribe los datos dentro del file
                     byte[] TextInbytes = base64.getBytes("UTF-8");
