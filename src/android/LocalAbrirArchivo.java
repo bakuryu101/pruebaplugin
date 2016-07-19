@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
 
 public class LocalAbrirArchivo extends CordovaPlugin {
     
@@ -212,8 +211,8 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     
                     
                 
-                } catch(FileNotFoundException fnfe) { 
-                    System.out.println(fnfe.getMessage());
+                } catch(Exception e) { 
+                     e.printStackTrace();
                 }
 
             }else{
