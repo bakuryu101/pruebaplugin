@@ -187,7 +187,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
                 }
                 //se crea el atchivo segun la ruta del path tipo File
-                os = new FileOutputStream(path, true);
+                FileOutputStream os = new FileOutputStream(path, true);
                 os = new FileOutputStream(path, false);
                 //Se escribe los datos dentro del file
                 os.write(StringBytes);
@@ -195,18 +195,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 //Se cierra el file
                 os.close();
                 
-                // TODO Auto-generated catch block
-                    new AlertDialog.Builder(cordova.getActivity())
-                    .setTitle("Correcto")
-                    .setMessage("Datos guardados")
-                    .setCancelable(false)
-                    .setNeutralButton("OK", new AlertDialog.OnClickListener() {
-                        public void onClick(DialogInterface dialogInterface, int which) {
-                            dialogInterface.dismiss();
-                        }
-                    })
-                    .create()
-                    .show();
+
 
             }else{
                 return false;    
