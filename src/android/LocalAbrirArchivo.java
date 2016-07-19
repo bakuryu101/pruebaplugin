@@ -185,7 +185,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 byte[] StringBytes= base.getBytes();
                 try {
                     if (tipo.equals("text")) {
-                        date horaActual=new Date();
+                        Date horaActual=new Date();
                         String hora=(horaActual.getYear()+1900)+""+(horaActual.getMonth()+1)+""+horaActual.getDate()+""+horaActual.getHours()+""+horaActual.getMinutes()+""+horaActual.getSeconds();
                         path = new File(Environment.getExternalStorageDirectory() + "/sincro"+hora+".txt");
                     }
