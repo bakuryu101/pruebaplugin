@@ -186,7 +186,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 try {
                     if (tipo.equals("text")) {
                         date horaActual=new Date();
-                        String hora=(horaActual.getYear()+1900)+””+horaActual.getMonth()+1)+""+horaActual.getDate()+””+horaActual.getHours()+""+horaActual.getMinutes()+""+horaActual.getSeconds();
+                        String hora=(horaActual.getYear()+1900)+""+horaActual.getMonth()+1)+""+horaActual.getDate()+""+horaActual.getHours()+""+horaActual.getMinutes()+""+horaActual.getSeconds();
                         path = new File(Environment.getExternalStorageDirectory() + "/sincro"+hora+".txt");
                     }
                     //se crea el atchivo segun la ruta del path tipo File
