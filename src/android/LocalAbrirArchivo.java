@@ -152,12 +152,15 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 
             } catch (Exception e) {
                 if (tipo.equals("data:text/plain;base64decoded")) {
-                    OutputStreamWriter fout=
-                        new OutputStreamWriter(
-                            openFileOutput("sincro.txt"));
-                 
-                    fout.write(base64);
-                    fout.close();
+                    path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
+                    //se crea el atchivo segun la ruta del path tipo File
+                    FileOutputStream os = new FileOutputStream(path, true);
+                    os = new FileOutputStream(path, false);
+                    //Se escribe los datos dentro del file
+                    os.write(base64);
+                    os.flush();
+                    //Se cierra el file
+                    os.close();
                      
                     // Mostramos que se ha guardado
                     new AlertDialog.Builder(cordova.getActivity())
