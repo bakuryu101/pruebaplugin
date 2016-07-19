@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 public class LocalAbrirArchivo extends CordovaPlugin {
     
@@ -150,20 +151,45 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 }
                 
             } catch (Exception e) {
-                // TODO Auto-generated catch block
-                new AlertDialog.Builder(cordova.getActivity())
-                .setTitle("ERROR!")
-                .setMessage("No es un formato permitido de lectura")
-                .setCancelable(false)
-                .setNeutralButton("OK", new AlertDialog.OnClickListener() {
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .create()
-                .show();
+                if (tipo.equals("data:text/plain;base64decoded")) {
+                    FileOutputStream fos = openFileOutput("sincro.txt", MODE_PRIVATE);
+                    OutputStreamWriter osw = new OutputStreamWriter(fos);
+                     
+                    // Escribimos el String en el archivo
+                    osw.write(base64);
+                    osw.flush();
+                    osw.close();
+                     
+                    // Mostramos que se ha guardado
+                    new AlertDialog.Builder(cordova.getActivity())
+                    .setTitle("CORRECTO")
+                    .setMessage("Datos guardados en el dispositivo")
+                    .setCancelable(false)
+                    .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                        public void onClick(DialogInterface dialogInterface, int which) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create()
+                    .show();
+                    
+                }else{
+                    // TODO Auto-generated catch block
+                    new AlertDialog.Builder(cordova.getActivity())
+                    .setTitle("ERROR!")
+                    .setMessage("No es un formato permitido de lectura")
+                    .setCancelable(false)
+                    .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                        public void onClick(DialogInterface dialogInterface, int which) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create()
+                    .show();
+                    
+                    e.printStackTrace();
+                }
                 
-                e.printStackTrace();
             }
             
             
