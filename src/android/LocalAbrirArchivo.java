@@ -199,7 +199,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     // TODO Auto-generated catch block
                     new AlertDialog.Builder(cordova.getActivity())
                     .setTitle("CORRECTO")
-                    .setMessage("No es un formato permitido de lectura")
+                    .setMessage("Datos guardados en el dispositivo")
                     .setCancelable(false)
                     .setNeutralButton("OK", new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialogInterface, int which) {
@@ -209,7 +209,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     .create()
                     .show();
                     
-                    e.printStackTrace();
+                    
                 
                 } catch(FileNotFoundException fnfe) { 
                     System.out.println(fnfe.getMessage());
