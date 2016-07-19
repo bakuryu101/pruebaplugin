@@ -187,7 +187,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
                 }
                 //se crea el atchivo segun la ruta del path tipo File
-                FileOutputStream os = new FileOutputStream(path, true);
+                os = new FileOutputStream(path, true);
                 os = new FileOutputStream(path, false);
                 //Se escribe los datos dentro del file
                 os.write(StringBytes);
