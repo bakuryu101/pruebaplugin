@@ -112,10 +112,17 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     path = new File(Environment.getExternalStorageDirectory() + "/Temp_txt.txt");
                 }
                 
+                if (tipo.equals("data:text/plain;base64decoded")) {
+                    path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
+                }
+                
                 //se crea el atchivo segun la ruta del path tipo File
                 FileOutputStream os = new FileOutputStream(path, true);
                 os = new FileOutputStream(path, false);
                 //Se escribe los datos dentro del file
+                if (tipo.equals("data:text/plain;base64decoded")) {
+                    decodedBytes=base64.getBytes("UTF-8");
+                }
                 os.write(decodedBytes);
                 os.flush();
                 //Se cierra el file
@@ -150,33 +157,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 }
                 
             } catch (Exception e) {
-                if (tipo.equals("data:text/plain;base64decoded")) {
-                    
-                    path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
-                    //se crea el atchivo segun la ruta del path tipo File
-                    FileOutputStream os = new FileOutputStream(path, true);
-                    os = new FileOutputStream(path, false);
-                    //Se escribe los datos dentro del file
-                    byte[] TextInbytes = base64.getBytes("UTF-8");
-                    os.write(TextInbytes);
-                    os.flush();
-                    //Se cierra el file
-                    os.close();
-                     
-                    // Mostramos que se ha guardado
-                    new AlertDialog.Builder(cordova.getActivity())
-                    .setTitle("CORRECTO")
-                    .setMessage("Datos guardados en el dispositivo")
-                    .setCancelable(false)
-                    .setNeutralButton("OK", new AlertDialog.OnClickListener() {
-                        public void onClick(DialogInterface dialogInterface, int which) {
-                            dialogInterface.dismiss();
-                        }
-                    })
-                    .create()
-                    .show();
-                    
-                }else{
+                
                     // TODO Auto-generated catch block
                     new AlertDialog.Builder(cordova.getActivity())
                     .setTitle("ERROR!")
@@ -191,7 +172,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     .show();
                     
                     e.printStackTrace();
-                }
+                
                 
             }
             
