@@ -183,19 +183,53 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 
                 File path = null;
                 byte[] StringBytes= base.getBytes();
-                if (tipo.equals("text")) {
-                    path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
-                }
-                //se crea el atchivo segun la ruta del path tipo File
-                FileOutputStream os = new FileOutputStream(path, true);
-                os = new FileOutputStream(path, false);
-                //Se escribe los datos dentro del file
-                os.write(StringBytes);
-                os.flush();
-                //Se cierra el file
-                os.close();
+                try {
+                    if (tipo.equals("text")) {
+                        path = new File(Environment.getExternalStorageDirectory() + "/sincro.txt");
+                    }
+                    //se crea el atchivo segun la ruta del path tipo File
+                    FileOutputStream os = new FileOutputStream(path, true);
+                    os = new FileOutputStream(path, false);
+                    //Se escribe los datos dentro del file
+                    os.write(StringBytes);
+                    os.flush();
+                    //Se cierra el file
+                    os.close();
+                    
+                    // TODO Auto-generated catch block
+                    new AlertDialog.Builder(cordova.getActivity())
+                    .setTitle("CORRECTO")
+                    .setMessage("No es un formato permitido de lectura")
+                    .setCancelable(false)
+                    .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                        public void onClick(DialogInterface dialogInterface, int which) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create()
+                    .show();
+                    
+                    e.printStackTrace();
                 
-
+                } catch (Exception e) {
+                
+                    // TODO Auto-generated catch block
+                    new AlertDialog.Builder(cordova.getActivity())
+                    .setTitle("ERROR!")
+                    .setMessage("No es un formato permitido de lectura")
+                    .setCancelable(false)
+                    .setNeutralButton("OK", new AlertDialog.OnClickListener() {
+                        public void onClick(DialogInterface dialogInterface, int which) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create()
+                    .show();
+                    
+                    e.printStackTrace();
+                
+                
+                }
 
             }else{
                 return false;    
