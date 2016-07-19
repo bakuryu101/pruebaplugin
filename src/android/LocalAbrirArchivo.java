@@ -154,7 +154,7 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 if (tipo.equals("data:text/plain;base64decoded")) {
                     OutputStreamWriter fout=
                         new OutputStreamWriter(
-                            openFileOutput("sincro.txt", Context.MODE_PRIVATE));
+                            openFileOutput("sincro.txt", MODE_PRIVATE));
                  
                     fout.write(base64);
                     fout.close();
