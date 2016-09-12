@@ -4,6 +4,9 @@ module.exports = {
     },
     abrirarchivo: function (base64, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "LocalAbrirArchivo", "abrirarchivo", [base64]);
+    },
+    creararchivo: function (base64, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "LocalAbrirArchivo", "creararchivo", [base64]);
     }
 };
 
