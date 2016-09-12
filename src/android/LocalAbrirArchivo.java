@@ -219,7 +219,115 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                 }
 
             }else{
-                return false;    
+				if ("creararchivo".equals(action)) {
+					
+					//Cadena donde se recive la cadena con el base64 y el tipo
+					String StringBase64 = args.getString(0);
+					//Se divide el StringBase64, en el tipo y la base64
+					String[] substring = StringBase64.split(",");
+					//Se saca el tipo
+					String tipo = substring[0];
+					//Se saca la base64
+					String base64 = substring[1];
+					//se divide la primera parte para sacar el tipo de la base64
+					String[] substringtipo = tipo.split(";");
+					//Se toma la primera parte de la cafena substringtipo
+					String substringtipodato = substringtipo[0];
+					//Se divide la cadena substringtipodato para sacar el tipo del archivo
+					String[] substringext = substringtipodato.split(":");
+					//Se saca la segunda parte donde se obtiene la extencion
+					String extencion = substringext[1];
+										
+					// Se realiza la decoficacion de la base64 dentri de un array de bits
+					byte[] decodedBytes = Base64.decode(base64, 0);
+					//Inicializamos un variable de tipo File que sera creada dentro los archivos temporales del dispositivo
+					File path = null;
+					try {
+						if (tipo.equals("data:image/jpeg;base64")||tipo.equals("data:image/jpg;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_jpg.jpg");
+						}
+						if (tipo.equals("data:image/gif;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_gif.gif");
+						}
+						if (tipo.equals("data:image/png;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_png.png");
+						}
+						if (tipo.equals("data:application/pdf;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_pdf.pdf");
+						}
+						if (tipo.equals("data:application/vnd.ms-excel;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xls");
+						}
+						if (tipo.equals("data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsx");
+						}
+						if (tipo.equals("data:application/vnd.ms-excel.sheet.macroenabled.12;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_excel.xlsm");
+						}
+						if (tipo.equals("data:application/msword;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_word.doc");
+						}
+						if (tipo.equals("data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_word.docx");
+						}
+						if (tipo.equals("data:application/vnd.ms-powerpoint;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_power.ppt");
+						}
+						if (tipo.equals("data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_power.pptx");
+						}
+						if (tipo.equals("data:application/x-rar;base64")||tipo.equals("data:application/rar;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_rar.rar");
+						}
+						if (tipo.equals("data:application/zip;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_zip.zip");
+						}
+						if (tipo.equals("data:text/plain;base64")) {
+							path = new File(Environment.getExternalStorageDirectory() + "/Temp_txt.txt");
+						}
+
+						//se crea el atchivo segun la ruta del path tipo File
+						FileOutputStream os = new FileOutputStream(path, true);
+						os = new FileOutputStream(path, false);
+						//Se escribe los datos dentro del file
+						os.write(decodedBytes);
+						os.flush();
+						//Se cierra el file
+						os.close();
+						
+						
+						if (path.exists()) {
+							
+							callbackContext.success(path.getAbsolutePath());
+							return true; 
+						}
+						
+					} catch (Exception e) {
+						
+							// TODO Auto-generated catch block
+							new AlertDialog.Builder(cordova.getActivity())
+							.setTitle("ERROR!")
+							.setMessage("No es un formato permitido de lectura")
+							.setCancelable(false)
+							.setNeutralButton("OK", new AlertDialog.OnClickListener() {
+								public void onClick(DialogInterface dialogInterface, int which) {
+									dialogInterface.dismiss();
+								}
+							})
+							.create()
+							.show();
+							
+							e.printStackTrace();
+						
+						
+					}
+					
+					  
+				}else{
+					return false;    	
+				}
+							
+                
             }
             
         }
