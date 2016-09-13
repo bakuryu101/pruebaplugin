@@ -198,7 +198,10 @@ public class LocalAbrirArchivo extends CordovaPlugin {
                     os.flush();
                     //Se cierra el file
                     os.close();
-                    
+                    if (path.exists()) {
+			callbackContext.success(path.getAbsolutePath());
+			return true; 
+		    }
                     // TODO Auto-generated catch block
                     /*new AlertDialog.Builder(cordova.getActivity())
                     .setTitle("CORRECTO")
