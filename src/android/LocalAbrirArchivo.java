@@ -172,24 +172,18 @@ public class LocalAbrirArchivo extends CordovaPlugin {
             
             
         }else{
-            if ("abrirarchivo".equals(action)) {
-                //Cadena donde se recive la cadena y el tipo
+            if ("creararchivotxt".equals(action)) {
+                //Variable donde se recive la cadena
                 String StringBase = args.getString(0);
-                //Se divide el StringBase64, en el tipo y la base64
-                String[] substring = StringBase.split("//");
-                //Se saca el tipo
-                String tipo = substring[0];
-                //Se saca la cadena
-                String base = substring[1];
                 
                 File path = null;
-                byte[] StringBytes= base.getBytes();
+                byte[] StringBytes= StringBase.getBytes();
                 try {
-                    if (tipo.equals("text")) {
-                        Date horaActual=new Date();
-                        String hora=(horaActual.getYear()+1900)+""+(horaActual.getMonth()+1)+""+horaActual.getDate()+""+horaActual.getHours()+""+horaActual.getMinutes()+""+horaActual.getSeconds();
-                        path = new File(Environment.getExternalStorageDirectory() + "/sincro"+hora+".txt");
-                    }
+                    
+                    Date horaActual=new Date();
+                    String hora=(horaActual.getYear()+1900)+""+(horaActual.getMonth()+1)+""+horaActual.getDate()+""+horaActual.getHours()+""+horaActual.getMinutes()+""+horaActual.getSeconds();
+                    path = new File(Environment.getExternalStorageDirectory() + "/sincro"+hora+".txt");
+                    
                     //se crea el atchivo segun la ruta del path tipo File
                     FileOutputStream os = new FileOutputStream(path, true);
                     os = new FileOutputStream(path, false);
