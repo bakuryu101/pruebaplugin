@@ -1,5 +1,6 @@
 {
   "name": "base64-files",
+  "version": "0.0.1",
   "locator": "https://github.com/bakuryu101/pruebaplugin.git",
   "id": "cordova-plugin-base64-files"
 }
